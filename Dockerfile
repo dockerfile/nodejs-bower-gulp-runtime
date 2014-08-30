@@ -12,7 +12,6 @@ ONBUILD ADD package.json /app/
 ONBUILD RUN npm install
 ONBUILD ADD bower.json /app/
 ONBUILD RUN bower install --allow-root
-ONBUILD ADD Gulpfile.js /app/
 ONBUILD ADD . /app
 ONBUILD RUN gulp build
 
