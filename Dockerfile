@@ -10,7 +10,7 @@ FROM dockerfile/nodejs-bower-gulp
 # Set instructions on build.
 ONBUILD ADD package.json /app/
 ONBUILD RUN \
-  bower install && \
+  bower install --allow-root && \
   npm install && \
   gulp build
 ONBUILD ADD . /app
