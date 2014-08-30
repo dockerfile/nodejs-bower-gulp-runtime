@@ -8,12 +8,11 @@
 FROM dockerfile/nodejs-bower-gulp
 
 # Set instructions on build.
-ONBUILD ADD bower.json /app/
-ONBUILD ADD Gulpfile.js /app/
 ONBUILD ADD package.json /app/
-ONBUILD RUN \
-  bower install --allow-root && \
-  npm install
+ONBUILD RUN npm install
+ONBUILD ADD bower.json /app/
+ONBUILD RUN bower install --allow-root
+ONBUILD ADD Gruntfile.js /app/
 ONBUILD ADD . /app
 ONBUILD RUN gulp build
 
